@@ -1,0 +1,3 @@
+change values in costmap_params
+move_base laucnh file.. one resolution
+change robot_state_publiser to static_publisher as there is no moving parts

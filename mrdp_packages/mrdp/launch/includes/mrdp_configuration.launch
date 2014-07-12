@@ -1,0 +1,6 @@
+<launch>
+  <node pkg="tf" type="static_transform_publisher" name="base_to_kinect" args="-1 0 0 0 0 mrdp_base mrdp_kinect 100"/>
+
+  <include file="$(find mrdp_vision)/launch/kinect_launch.launch"/>
+
+</launch>

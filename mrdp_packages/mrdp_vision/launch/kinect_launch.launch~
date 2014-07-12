@@ -1,0 +1,9 @@
+<launch>
+  <arg name="camera" value="camera"/>
+  <include file="$(find openni_launch)/launch/openni.launch"/>
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="fake_laser">
+  <remap from="image" to="/$(arg camera)/depth/image_raw"/>
+  <remap from="scan" to="/scan" />
+  </node>
+</launch>
+  

@@ -1,0 +1,55 @@
+<launch>
+ <include file="$(find miniturtle)/launch/miniturtle_configuration.launch"/>
+ <node pkg="differential_drive" type="virtual_joystick.py" name="virtual_joystick"/>
+ <node pkg="differential_drive" type="diff_tf.py" name="difftf"/>
+ <node pkg="differential_drive" type="wheel_scaler.py" name="wheel_scalar"/>
+ <node pkg="differential_drive" type="pid_velocity.py" name="left_pid_velocity">
+      <rosparam param="Kp">200</rosparam>
+      <rosparam param="Ki">200</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+      <remap from="wheel" to="lwheel"/>
+      <remap from="motor_cmd" to="lmotor"/>
+      <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+      <remap from="wheel_vel" to="lwheel_vel"/>
+  </node> 
+  <node pkg="differential_drive" type="pid_velocity.py" name="right_pid_velocity">
+      <rosparam param="Kp">200</rosparam>
+      <rosparam param="Ki">200</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+      <remap from="wheel" to="rwheel"/>
+      <remap from="motor_cmd" to="rmotor"/>
+      <remap from="wheel_vtarget" to="rwheel_vtarget"/>
+      <remap from="wheel_vel" to="rwheel_vel"/>
+  </node> 
+ <node pkg="gmapping" type="slam_gmapping" name="gmapping" output="screen">
+    <remap from="scan" to="/laser_scan"/>
+    <rosparam param="odom_frame">odom</rosparam>
+    <rosparam param="linearUpdate">0.10</rosparam> <!-- Process a scan each time the robot translates this far -->
+    <rosparam param="angularUpdate">0.25</rosparam> <!-- Process a scan each time the robot rotates this far -->
+    <rosparam param="kernelSize">0.2</rosparam>    <!-- The kernel in which to look for a correspondence -->
+    <rosparam param="lstep">0.05</rosparam>        <!-- The optimization step in translation -->
+    <rosparam param="astep">0.05</rosparam>        <!-- The optimization step in rotation -->
+    <rosparam param="iterations">5</rosparam>      <!-- The number of interations in the scan matcher -->
+    <rosparam param="lsigma">1.000</rosparam>      <!-- The sigma of a beam used for likelihood -->
+    <rosparam param="delta">0.025</rosparam>        <!-- resolution of the map -->
+    <rosparam param="xmin">-10.0</rosparam>
+    <rosparam param="xmax">10.0</rosparam>
+    <rosparam param="ymin">-10.0</rosparam>
+    <rosparam param="ymax">10.0</rosparam>
+    <rosparam param="llsamplerange">0.01</rosparam>
+    <rosparam param="llsamplestep">0.01</rosparam>
+    <rosparam param="maxRange">1.0</rosparam>
+    <rosparam param="maxURange">0.98</rosparam>
+    
+    <rosparam param="temporalUpdate">30</rosparam>
+  </node>emporalUpdate 
+</launch>
+

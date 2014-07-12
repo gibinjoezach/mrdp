@@ -1,0 +1,4 @@
+<launch>
+ <include file"$(find mrdp)/launch/includes/mrdp_configuration.launch"/>
+ <include file="$(find mrdp)/launch/includes/mrdp_movebase.launch"/>
+</launch> 

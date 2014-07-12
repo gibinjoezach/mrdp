@@ -1,0 +1,19 @@
+<launch>
+ <master auto="start"/>
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find miniturtle)/maps/map.pgm 0.1"/> 
+<!--
+ <include file="$(find miniturtle)/launch/dummy_amcl2.launch"/> -->
+ <node pkg="amcl" type="amcl" name="mini_amcl"> 
+ <remap from="scan" to="laser_scan"/>
+ </node> 
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find miniturtle)/parameters/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find miniturtle)/parameters/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find miniturtle)/parameters/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find miniturtle)/parameters/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find miniturtle)/parameters/base_local_planner_params.yaml" command="load" />
+  </node>
+
+ <include file="$(find miniturtle)/launch/mini_differential.launch"/>
+</launch>

@@ -1,0 +1,27 @@
+<node pkg="differential_drive" type="pid_velocity.py" name="left_pid_velocity">
+      <rosparam param="Kp">200</rosparam>
+      <rosparam param="Ki">200</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+      <remap from="wheel" to="lwheel"/>
+      <remap from="motor_cmd" to="lmotor"/>
+      <remap from="wheel_vtarget" to="lwheel_vtarget"/>
+      <remap from="wheel_vel" to="lwheel_vel"/>
+  </node> 
+  <node pkg="differential_drive" type="pid_velocity.py" name="right_pid_velocity">
+      <rosparam param="Kp">200</rosparam>
+      <rosparam param="Ki">200</rosparam>
+      <rosparam param="Kd">0</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">30</rosparam>
+      <rosparam param="rolling_pts">5</rosparam>
+      <remap from="wheel" to="rwheel"/>
+      <remap from="motor_cmd" to="rmotor"/>
+      <remap from="wheel_vtarget" to="rwheel_vtarget"/>
+      <remap from="wheel_vel" to="rwheel_vel"/>
+  </node>
+

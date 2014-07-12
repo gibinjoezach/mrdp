@@ -1,0 +1,4 @@
+<launch>
+<node pkg="tf" type="static_transform_publisher" name="baselink" args="0.075 0 0.125 0 0 0 1 /base_link /camera_link 20"/>"<!--0.322 0 0.19-->
+<node pkg="tf" type="static_transform_publisher" name="footprint" args="0 0 0 0 0 0 /base_footprint /base_link 20"/>
+</launch>

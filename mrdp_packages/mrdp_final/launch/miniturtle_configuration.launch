@@ -1,0 +1,6 @@
+<launch>
+ <include file="$(find mrdp_final)/launch/mini_tf.launch"/>
+
+ <include file="$(find mrdp_final)/launch/kinect_launch.launch"/>
+
+</launch>

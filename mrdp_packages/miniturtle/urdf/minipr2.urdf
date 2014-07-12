@@ -1,0 +1,153 @@
+<robot name ="mrdp">
+
+ <link name="base_link">
+  <visual>
+   <geometry>
+     <box size="0.2 0.2 0.01" />
+   </geometry>
+ </visual>
+ </link>
+
+ <link name="wheel_right">
+  <visual>
+   <geometry>
+    <cylinder length="0.02" radius="0.04" />
+   </geometry>
+   <material name="blue">
+    <color rgba="0 0 0.8 1" />
+   </material>
+   <origin rpy="1.57075 0 0" xyz="0 0 0" />
+  </visual>
+ </link>
+ 
+ <joint name="base_to_right_wheel" type="continuous">
+  <parent link="base_link" />
+  <child link="wheel_right" />
+  <origin xyz="0 -0.12 0" />
+ </joint>
+
+ <link name="wheel_left">
+  <visual>
+   <geometry>
+    <cylinder length="0.02" radius="0.04" />
+   </geometry>
+   <material name="blue">
+    <color rgba="0 0 0.8 1" />
+   </material>
+   <origin rpy="1.57075 0 0" xyz="0 0 0" />
+  </visual>
+ </link>
+ 
+ <joint name="base_to_left_wheel" type="continuous">
+  <parent link="base_link" />
+  <child link="wheel_left" />
+  <origin xyz="0 0.12 0" />
+ </joint>
+
+ <link name="support1">
+  <visual>
+   <geometry>
+    <cylinder length="0.1" radius="0.001" />
+   </geometry>
+   <material name="white">
+    <color rgba="1 1 1 1" />
+   </material>
+   <origin rpy="0 0 0" xyz="0 0 0.05" />
+  </visual>
+ </link>
+ 
+ <joint name="support1_baselink" type="fixed">
+  <parent link="base_link" />
+  <child link="support1" />
+  <origin xyz="0.1 0.1 0" />
+ </joint>
+
+<link name="support2">
+  <visual>
+   <geometry>
+    <cylinder length="0.1" radius="0.001" />
+   </geometry>
+   <material name="white">
+    <color rgba="1 1 1 1" />
+   </material>
+   <origin rpy="0 0 0" xyz="0 0 0.05" />
+  </visual>
+ </link>
+ 
+ <joint name="support2_baselink" type="fixed">
+  <parent link="base_link" />
+  <child link="support2" />
+  <origin xyz="0.1 -0.1 0" />
+ </joint>
+
+<link name="support3">
+  <visual>
+   <geometry>
+    <cylinder length="0.1" radius="0.001" />
+   </geometry>
+   <material name="white">
+    <color rgba="1 1 1 1" />
+   </material>
+   <origin rpy="0 0 0" xyz="0 0 0.05" />
+  </visual>
+ </link>
+ 
+ <joint name="support3_baselink" type="fixed">
+  <parent link="base_link" />
+  <child link="support3" />
+  <origin xyz="-0.1 0.1 0" />
+ </joint>
+
+<link name="support4">
+  <visual>
+   <geometry>
+    <cylinder length="0.1" radius="0.001" />
+   </geometry>
+   <material name="white">
+    <color rgba="1 1 1 1" />
+   </material>
+   <origin rpy="0 0 0" xyz="0 0 0.05" />
+  </visual>
+ </link>
+ 
+ <joint name="support4_baselink" type="fixed">
+  <parent link="base_link" />
+  <child link="support4" />
+  <origin xyz="-0.1 -0.1 0" />
+ </joint>
+
+ <link name="kinect_base">
+  <visual>
+   <geometry>
+     <box size="0.2 0.2 0.01" />
+   </geometry>
+  <origin rpy="0 0 0" xyz="-0.1 -0.1 0" />
+ </visual>
+ </link>
+
+ <joint name="kinectbase_support1" type="fixed">
+  <parent link="support1" />
+  <child link="kinect_base" />
+  <origin xyz="0 0 0.1" />
+ </joint>
+
+ <link name="camera_link">
+  <visual>
+   <geometry>
+     <box size="0.15 0.05 0.05" />
+   </geometry>
+  <material name="green">
+    <color rgba="0 0 0 0.1" />
+  </material>
+  <origin rpy="0 0 1.5707" xyz="0 0 0" />
+ </visual>
+ </link>
+
+ <joint name="kinect_kinectbase" type="fixed">
+  <parent link="kinect_base" />
+  <child link="camera_link" />
+  <origin xyz="-0.025 -0.1 0.025" />
+ </joint>
+
+ 
+</robot>

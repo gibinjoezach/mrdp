@@ -1,0 +1,6 @@
+<launch>
+ <node pkg="differential_drive" type="diff_tf.py" name="diff_tf">
+	<rosparam param="base_width">0.312</rosparam>
+ </node> 	
+ <node pkg="differential_drive" type="wheel_scaler.py" name="wheel_scaler" output="screen"/>
+</launch>

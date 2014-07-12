@@ -1,0 +1,9 @@
+<launch>
+ <node name="map_server" pkg="map_server" type="map_server" args="$(find mrdp)/maps/map.yaml"/>
+
+ <include file="$(find mrdp)/launch/includes/mrdp_amcl.launch" />
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+ <!-- Enter the parameters for the global and local costmaps here -->
+ </node>
+</launch>

@@ -1,0 +1,15 @@
+digraph G {
+"/camera_rgb_frame" -> "/camera_rgb_optical_frame"[label="Broadcaster: /camera_base_link3\nAverage rate: 10.187 Hz\nMost recent transform: -0.087 sec old \nBuffer length: 4.908 sec\n"];
+"/camera_link" -> "/camera_rgb_frame"[label="Broadcaster: /camera_base_link1\nAverage rate: 10.190 Hz\nMost recent transform: -0.035 sec old \nBuffer length: 4.809 sec\n"];
+"/camera_depth_frame" -> "/camera_depth_optical_frame"[label="Broadcaster: /camera_base_link2\nAverage rate: 10.190 Hz\nMost recent transform: -0.035 sec old \nBuffer length: 4.809 sec\n"];
+"/camera_link" -> "/camera_depth_frame"[label="Broadcaster: /camera_base_link\nAverage rate: 10.191 Hz\nMost recent transform: -0.039 sec old \nBuffer length: 4.808 sec\n"];
+"/odom" -> "/base_footprint"[label="Broadcaster: /odometry_publisher\nAverage rate: 1.250 Hz\nMost recent transform: 0.382 sec old \nBuffer length: 4.000 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1394036108.498"[ shape=plaintext ] ;
+ }->"/camera_link";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1394036108.498"[ shape=plaintext ] ;
+ }->"/odom";
+}

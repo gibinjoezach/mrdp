@@ -1,0 +1,11 @@
+<launch>
+	<include file="$(find mrdp_final)/launch/miniturtle_configuration.launch"/>
+
+	<node pkg="gmapping" type="slam_gmapping" name="gmapping">
+		<remap from="scan" to="laser_scan"/>
+		<!--<rosparam param="linearUpdate">0.3</rosparam>
+		<rosparam param="angularUpdate">0.2</rosparam>-->
+	</node>
+	<node pkg="rviz" type="rviz" name="mrdp_rviz"/>
+
+</launch>

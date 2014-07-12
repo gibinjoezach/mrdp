@@ -1,0 +1,29 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"wheel_left" [label="wheel_left"];
+"wheel_right" [label="wheel_right"];
+"support1" [label="support1"];
+"kinect_base" [label="kinect_base"];
+"kinect" [label="kinect"];
+"support2" [label="support2"];
+"support3" [label="support3"];
+"support4" [label="support4"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_left_wheel" [label="xyz: 0 1.2 0 \nrpy: 0 -0 0"]
+"base_to_left_wheel" -> "wheel_left"
+"base_link" -> "base_to_right_wheel" [label="xyz: 0 -1.2 0 \nrpy: 0 -0 0"]
+"base_to_right_wheel" -> "wheel_right"
+"base_link" -> "support1_baselink" [label="xyz: 1 1 0 \nrpy: 0 -0 0"]
+"support1_baselink" -> "support1"
+"support1" -> "kinectbase_support1" [label="xyz: 0 0 1 \nrpy: 0 -0 0"]
+"kinectbase_support1" -> "kinect_base"
+"kinect_base" -> "kinect_kinectbase" [label="xyz: -0.25 -1 0.25 \nrpy: 0 -0 0"]
+"kinect_kinectbase" -> "kinect"
+"base_link" -> "support2_baselink" [label="xyz: 1 -1 0 \nrpy: 0 -0 0"]
+"support2_baselink" -> "support2"
+"base_link" -> "support3_baselink" [label="xyz: -1 1 0 \nrpy: 0 -0 0"]
+"support3_baselink" -> "support3"
+"base_link" -> "support4_baselink" [label="xyz: -1 -1 0 \nrpy: 0 -0 0"]
+"support4_baselink" -> "support4"
+}

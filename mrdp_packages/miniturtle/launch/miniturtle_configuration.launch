@@ -1,0 +1,6 @@
+<launch>
+ <include file="$(find miniturtle)/launch/mini_tf.launch"/>
+
+ <include file="$(find miniturtle)/launch/kinect_launch.launch"/>
+
+</launch>

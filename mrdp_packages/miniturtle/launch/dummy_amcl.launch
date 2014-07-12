@@ -1,0 +1,11 @@
+<launch>
+ <node pkg="amcl" type="amcl" name="amcl">
+  <rosparam param="use_map_topic">"true"</rosparam>
+  <rosparam param="initial_pose_x">0.0</rosparam>
+<rosparam param="initial_pose_y">0.0</rosparam>
+<rosparam param="initial_pose_y">0.0</rosparam>
+<rosparam param="initial_cov_xx">0.0*0.0</rosparam>
+<rosparam param="initial_cov_yy">0.0*0.0</rosparam>
+<rosparam param="initial_cov_aa">0.0*0.0</rosparam>
+ </node>
+</launch>
